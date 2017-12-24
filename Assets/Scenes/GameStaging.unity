@@ -219,6 +219,7 @@ GameObject:
   - component: {fileID: 2112201331}
   - component: {fileID: 2112201330}
   - component: {fileID: 2112201334}
+  - component: {fileID: 2112201335}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -306,3 +307,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textureSize: 32
+--- !u!114 &2112201335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2112201329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 362a055c0d1e86844b375aff9ee52aed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: {x: 0, y: 0}
