@@ -19,7 +19,7 @@ public class GameObjectUtil
 			instance.transform.position = pos;
 		}
 
-		return null;
+		return instance;
 	}
 
 	public static void Destroy (GameObject gameObject)
