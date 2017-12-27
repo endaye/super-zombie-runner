@@ -23,7 +23,7 @@ public class RecycleGameObject : MonoBehaviour
 			}
 		}
 
-		Debug.Log (name + " Found " + recycleComponents.Count + " Components");
+//		Debug.Log (name + " Found " + recycleComponents.Count + " Components");
 	}
 
 	public void Restart ()
