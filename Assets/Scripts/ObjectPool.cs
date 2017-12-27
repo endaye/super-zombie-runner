@@ -23,7 +23,17 @@ public class ObjectPool : MonoBehaviour
 	{
 		RecycleGameObject instance = null;
 
-		instance = CreateInstance (pos);
+		foreach (var go in poolInstances) {
+			if (go.gameObject.activeSelf != true) {
+				instance = go;
+				instance.transform.position = pos;
+			}
+		}
+
+		if (instance == null) {
+			instance = CreateInstance (pos);
+		}
+
 		instance.Restart ();
 
 		return instance;
