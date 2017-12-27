@@ -21,11 +21,11 @@ public class ObjectPool : MonoBehaviour
 
 	public RecycleGameObject NextObject (Vector3 pos)
 	{
-		RecycleGameObject instant = null;
+		RecycleGameObject instance = null;
 
-		instant = CreateInstance (pos);
-		instant.Restart ();
+		instance = CreateInstance (pos);
+		instance.Restart ();
 
-		return instant;
+		return instance;
 	}
 }
