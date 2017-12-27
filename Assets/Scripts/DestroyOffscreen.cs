@@ -5,54 +5,47 @@ using UnityEngine;
 public class DestroyOffscreen : MonoBehaviour
 {
 
-    public float offset = 16f;
+	public float offset = 16f;
 
-    private bool offscreen;
-    private float offscreenX = 0f;
-    private Rigidbody2D body2d;
+	private bool offscreen;
+	private float offscreenX = 0f;
+	private Rigidbody2D body2d;
 
-    private void Awake()
-    {
-        body2d = GetComponent<Rigidbody2D>();
-    }
+	private void Awake ()
+	{
+		body2d = GetComponent<Rigidbody2D> ();
+	}
 
-    // Use this for initialization
-    void Start()
-    {
-        offscreenX = (Screen.width / PixelPerfectCamera.pixelsToUnits) / 2f + offset;
-    }
+	// Use this for initialization
+	void Start ()
+	{
+		offscreenX = (Screen.width / PixelPerfectCamera.pixelsToUnits) / 2f + offset;
+	}
 
-    // Update is called once per frame
-    void Update()
-    {
-        var posX = transform.position.x;
-        var dirX = body2d.velocity.x;
+	// Update is called once per frame
+	void Update ()
+	{
+		var posX = transform.position.x;
+		var dirX = body2d.velocity.x;
 
-        if (Mathf.Abs(posX) > offscreenX)
-        {
-            if (dirX < 0 && posX < -offscreenX)
-            {
-                offscreen = true;
-            }
-            else if (dirX > 0 && posX > offscreenX)
-            {
-                offscreen = true;
-            }
-        }
-        else
-        {
-            offscreen = false;
-        }
+		if (Mathf.Abs (posX) > offscreenX) {
+			if (dirX < 0 && posX < -offscreenX) {
+				offscreen = true;
+			} else if (dirX > 0 && posX > offscreenX) {
+				offscreen = true;
+			}
+		} else {
+			offscreen = false;
+		}
 
-        if (offscreen)
-        {
-            OnOutOfBounds();
-        }
-    }
+		if (offscreen) {
+			OnOutOfBounds ();
+		}
+	}
 
-    public void OnOutOfBounds()
-    {
-        offscreen = false;
-        GameObjectUtil.Destroy(gameObject);
-    }
+	public void OnOutOfBounds ()
+	{
+		offscreen = false;
+		GameObjectUtil.Destroy (gameObject);
+	}
 }
