@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 
 	public GameObject playerPrefab;
 
+	private bool gameStarted;
 	private TimeManager timeManager;
 	private GameObject player;
 	private GameObject floor;
@@ -30,13 +31,18 @@ public class GameManager : MonoBehaviour
 
 		spawner.active = false;
 
-		ResetGame ();
+		Time.timeScale = 0f;
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-		
+		if (!gameStarted && Time.timeScale == 0) {
+			if (Input.anyKeyDown) {
+				timeManager.ManipulateTime (1f, 1f);
+				ResetGame ();
+			}
+		} 
 	}
 
 	void OnPlayerKilled ()
@@ -48,15 +54,19 @@ public class GameManager : MonoBehaviour
 
 		player.GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
 		timeManager.ManipulateTime (0, 5.5f);
+
+		gameStarted = false;
 	}
 
 	void ResetGame ()
 	{
 		spawner.active = true;
 
-		player = GameObjectUtil.Instantiate (playerPrefab, new Vector3 (0, (Screen.height / PixelPerfectCamera.pixelsToUnits) / 2, 0));
+		player = GameObjectUtil.Instantiate (playerPrefab, new Vector3 (0, (Screen.height / PixelPerfectCamera.pixelsToUnits) / 2 + 100, 0));
 
 		var playerDestroyScript = player.GetComponent<DestroyOffscreen> ();
 		playerDestroyScript.DestroyCallback += OnPlayerKilled;
+
+		gameStarted = true;
 	}
 }
