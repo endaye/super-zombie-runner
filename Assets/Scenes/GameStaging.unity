@@ -301,6 +301,16 @@ MonoBehaviour:
   prefabs:
   - {fileID: 1307014933270698, guid: c73b669962fba214d9e2fed000a184b3, type: 2}
   - {fileID: 1123571141726838, guid: 0ec46d87602ae40a2b6a70ce8f3635ad, type: 2}
+  - {fileID: 1377157952231096, guid: 06470af60526842f8b9a6ea398528376, type: 2}
+  - {fileID: 1995793908454618, guid: 902e2c39d11624871ac6440a08fcf44b, type: 2}
+  - {fileID: 1863051760758046, guid: 5c35d0d1c7eac496e99d524a81083442, type: 2}
+  - {fileID: 1307014933270698, guid: c73b669962fba214d9e2fed000a184b3, type: 2}
+  - {fileID: 1307014933270698, guid: c73b669962fba214d9e2fed000a184b3, type: 2}
+  - {fileID: 1307014933270698, guid: c73b669962fba214d9e2fed000a184b3, type: 2}
+  - {fileID: 1123571141726838, guid: 0ec46d87602ae40a2b6a70ce8f3635ad, type: 2}
+  - {fileID: 1123571141726838, guid: 0ec46d87602ae40a2b6a70ce8f3635ad, type: 2}
+  - {fileID: 1228721196356528, guid: 25aef1d82fadd4ee482dbfb1871a0699, type: 2}
+  - {fileID: 1228721196356528, guid: 25aef1d82fadd4ee482dbfb1871a0699, type: 2}
   delay: 2
   active: 1
   delayRange: {x: 1, y: 2}
