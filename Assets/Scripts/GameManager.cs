@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour {
+public class GameManager : MonoBehaviour
+{
 
 	public GameObject playerPrefab;
 
@@ -10,13 +11,15 @@ public class GameManager : MonoBehaviour {
 	private GameObject floor;
 	private Spawner spawner;
 
-	void Awake() {
+	void Awake ()
+	{
 		floor = GameObject.Find ("Foreground");
 		spawner = GameObject.Find ("Spawner").GetComponent<Spawner> ();
 	}
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
 		var floorHeight = floor.transform.localScale.y;
 		var pos = floor.transform.position;
 		pos.x = 0;
@@ -29,12 +32,28 @@ public class GameManager : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+	{
 		
 	}
 
-	void ResetGame() {
+	void OnPlayerKilled ()
+	{
+		spawner.active = false;
+
+		var playerDestroyScript = player.GetComponent<DestroyOffscreen> ();
+		playerDestroyScript.DestroyCallback -= OnPlayerKilled;
+
+		player.GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
+	}
+
+	void ResetGame ()
+	{
 		spawner.active = true;
-		player = GameObjectUtil.Instantiate(playerPrefab, new Vector3(0, (Screen.height / PixelPerfectCamera.pixelsToUnits) / 2, 0));
+
+		player = GameObjectUtil.Instantiate (playerPrefab, new Vector3 (0, (Screen.height / PixelPerfectCamera.pixelsToUnits) / 2, 0));
+
+		var playerDestroyScript = player.GetComponent<DestroyOffscreen> ();
+		playerDestroyScript.DestroyCallback += OnPlayerKilled;
 	}
 }

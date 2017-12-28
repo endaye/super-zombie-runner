@@ -7,6 +7,10 @@ public class DestroyOffscreen : MonoBehaviour
 
 	public float offset = 16f;
 
+	public delegate void OnDestroy ();
+
+	public event OnDestroy DestroyCallback;
+
 	private bool offscreen;
 	private float offscreenX = 0f;
 	private Rigidbody2D body2d;
@@ -47,5 +51,9 @@ public class DestroyOffscreen : MonoBehaviour
 	{
 		offscreen = false;
 		GameObjectUtil.Destroy (gameObject);
+
+		if (DestroyCallback != null) {
+			DestroyCallback ();
+		}
 	}
 }
