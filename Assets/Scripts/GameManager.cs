@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 
 	public GameObject playerPrefab;
 
+	private TimeManager timeManager;
 	private GameObject player;
 	private GameObject floor;
 	private Spawner spawner;
@@ -15,6 +16,7 @@ public class GameManager : MonoBehaviour
 	{
 		floor = GameObject.Find ("Foreground");
 		spawner = GameObject.Find ("Spawner").GetComponent<Spawner> ();
+		timeManager = GetComponent<TimeManager> ();
 	}
 
 	// Use this for initialization
@@ -45,6 +47,7 @@ public class GameManager : MonoBehaviour
 		playerDestroyScript.DestroyCallback -= OnPlayerKilled;
 
 		player.GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
+		timeManager.ManipulateTime (0, 5.5f);
 	}
 
 	void ResetGame ()
