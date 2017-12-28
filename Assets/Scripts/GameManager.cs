@@ -1,12 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
 
 	public GameObject playerPrefab;
+	public Text continueText;
 
+	private float blinkTime = 0f;
+	private bool blink;
 	private bool gameStarted;
 	private TimeManager timeManager;
 	private GameObject player;
@@ -32,6 +36,8 @@ public class GameManager : MonoBehaviour
 		spawner.active = false;
 
 		Time.timeScale = 0f;
+
+		continueText.text = "PRESS ANY BUTTON TO START";
 	}
 	
 	// Update is called once per frame
@@ -43,6 +49,16 @@ public class GameManager : MonoBehaviour
 				ResetGame ();
 			}
 		} 
+
+		if (!gameStarted) {
+			blinkTime++;
+
+			if (blinkTime % 40 == 0) {
+				blink = !blink;
+			}
+
+			continueText.canvasRenderer.SetAlpha (blink ? 0 : 1);
+		}
 	}
 
 	void OnPlayerKilled ()
@@ -56,6 +72,8 @@ public class GameManager : MonoBehaviour
 		timeManager.ManipulateTime (0, 5.5f);
 
 		gameStarted = false;
+
+		continueText.text = "PRESS ANY BUTTON TO START";
 	}
 
 	void ResetGame ()
@@ -68,5 +86,7 @@ public class GameManager : MonoBehaviour
 		playerDestroyScript.DestroyCallback += OnPlayerKilled;
 
 		gameStarted = true;
+
+		continueText.canvasRenderer.SetAlpha (0);
 	}
 }
