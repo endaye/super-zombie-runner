@@ -113,48 +113,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &159101510
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4457468198503890, guid: e9c8ee7f7858c4e1abcf7676fd4d5eeb, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4457468198503890, guid: e9c8ee7f7858c4e1abcf7676fd4d5eeb, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 103.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 4457468198503890, guid: e9c8ee7f7858c4e1abcf7676fd4d5eeb, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4457468198503890, guid: e9c8ee7f7858c4e1abcf7676fd4d5eeb, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4457468198503890, guid: e9c8ee7f7858c4e1abcf7676fd4d5eeb, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4457468198503890, guid: e9c8ee7f7858c4e1abcf7676fd4d5eeb, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4457468198503890, guid: e9c8ee7f7858c4e1abcf7676fd4d5eeb, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4457468198503890, guid: e9c8ee7f7858c4e1abcf7676fd4d5eeb, type: 2}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: e9c8ee7f7858c4e1abcf7676fd4d5eeb, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &806583483
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,7 +266,7 @@ GameObject:
   - component: {fileID: 1703188085}
   - component: {fileID: 1703188088}
   m_Layer: 0
-  m_Name: Frontground
+  m_Name: Foreground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -447,8 +405,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 385853be3c8ba4c6480f68ac709a6ab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floor: {fileID: 1703188084}
-  spawner: {fileID: 0}
+  playerPrefab: {fileID: 1143466555651082, guid: e9c8ee7f7858c4e1abcf7676fd4d5eeb,
+    type: 2}
 --- !u!4 &1737791835
 Transform:
   m_ObjectHideFlags: 0
@@ -460,7 +418,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2112201329
 GameObject:
