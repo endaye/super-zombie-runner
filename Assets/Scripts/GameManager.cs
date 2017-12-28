@@ -2,13 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class GameManager : MonoBehaviour
 {
 
 	public GameObject playerPrefab;
 	public Text continueText;
+	public Text scoreText;
 
+	private float timeElapsed = 0f;
+	private float bestTime = 0f;
 	private float blinkTime = 0f;
 	private bool blink;
 	private bool gameStarted;
@@ -58,6 +62,11 @@ public class GameManager : MonoBehaviour
 			}
 
 			continueText.canvasRenderer.SetAlpha (blink ? 0 : 1);
+
+			scoreText.text = "TIME: " + FormatTime (timeElapsed) + "\nBEST: " + FormatTime (bestTime);
+		} else {
+			timeElapsed += Time.deltaTime;
+			scoreText.text = "TIME: " + FormatTime (timeElapsed);
 		}
 	}
 
@@ -88,5 +97,13 @@ public class GameManager : MonoBehaviour
 		gameStarted = true;
 
 		continueText.canvasRenderer.SetAlpha (0);
+
+		timeElapsed = 0f;
+	}
+
+	private string FormatTime (float value)
+	{
+		TimeSpan t = TimeSpan.FromSeconds (value);
+		return string.Format ("{0:D2}:{1:D2}", t.Minutes, t.Seconds);
 	}
 }

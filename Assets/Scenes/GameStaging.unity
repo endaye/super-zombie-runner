@@ -746,6 +746,7 @@ MonoBehaviour:
   playerPrefab: {fileID: 1143466555651082, guid: e9c8ee7f7858c4e1abcf7676fd4d5eeb,
     type: 2}
   continueText: {fileID: 1439503326}
+  scoreText: {fileID: 1196225619}
 --- !u!4 &1737791835
 Transform:
   m_ObjectHideFlags: 0
@@ -753,8 +754,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1737791833}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -57.211437, y: 30.567232, z: -4.4341154}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -200, y: 0, z: -4.4341154}
+  m_LocalScale: {x: 0.9696006, y: 0.9696005, z: 0.9696005}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
